@@ -13,6 +13,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Category::all();
+        //dd($categories);
         return view('categories.index', ['categories' => $categories]);
     }
 
@@ -74,10 +75,10 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
+        $Category = Category::find($id);
+        $Category->delete();
 
         return redirect()->route('categories.index')->with('success', 'La categoria se ha eliminado');
     }
