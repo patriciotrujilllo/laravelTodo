@@ -24,7 +24,7 @@
                     <input type="color" class="form-control" name="color">
                 </div>
 
-                <button type="submit" class="btn btn-primary mt-2">Crear nueva tarea</button>
+                <button type="submit" class="btn btn-primary mt-2">Crear nueva categoria</button>
             </form>
 
             @foreach ($categories as $category)
@@ -36,10 +36,10 @@
                 </div>
 
                 <div class="col-md-3 d-flex justify-content-end">
-                    <form action="#" method="POST">
+                    <form action="{{ route('categories.destroy',[$category->id])}}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{$category->id}}" data-bs-id="">Eliminar</button>
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
                     </form>
                 </div>
 
