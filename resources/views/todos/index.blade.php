@@ -16,6 +16,16 @@
             <div class="mb-3">
                 <label for="title" class="form-label">Titulo de la tarea</label>
                 <input type="text" class="form-control" name="title">
+            </div>
+
+            <label for="category_id" class="form-label">Categoria de la tarea</label>
+            <select name="category_id" class="form-select">
+                @foreach ($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+
+            </select>
+
             <button type="submit" class="btn btn-primary mt-2">Crear nueva tarea</button>
         </form>
         <div>
