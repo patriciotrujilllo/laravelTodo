@@ -48,6 +48,7 @@ class CategoriesController extends Controller
     public function show($id)
     {
         $category = Category::find($id);
+        //dd($category);
         return view('categories.show', ['category' => $category]);
     }
 
@@ -78,6 +79,9 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         $Category = Category::find($id);
+        $Category->todos()->each(function ($todo) {
+            $todo->delete();
+        });
         $Category->delete();
 
         return redirect()->route('categories.index')->with('success', 'La categoria se ha eliminado');
